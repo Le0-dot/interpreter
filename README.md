@@ -15,14 +15,14 @@ Simple interpreter with table driven parser
 |     |           |       |      |       |
 | :-: | :-------: | :---: | :--: | :---: |
 | 0   | expr      |       |      |       |
-| 1   | expr'     | term  |	     |       |
+| 1   | expr'     | term  |	 |       |
 | 2   | plus_act  | expr' | term | plus  |
 | 3   | minus_act | expr' | term | minus |
 | 4   | term'     | fact  |      |       |
 | 5   | mul_act   | term' | fact | mul   |
 | 6   | div_act   | term' | fact | div   |
 | 7   | mod_act   | term' | fact | mod   |
-| 8   | num	      |	      |      |       |
+| 8   | num	  |	  |      |       |
 | 9   | pow_act   | term' | fact | pow   |
-| 10  | lp	      | expr  | rp   |       |
-| 11  |		        |       |      |       |
+| 10  | lp	  | expr  | rp   |       |
+| 11  |		  |       |      |       |
