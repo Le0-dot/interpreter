@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../token/types.hpp"
+
 enum class symbols {
     // Non-terminal symbols
     stmt,
@@ -28,3 +30,7 @@ enum class symbols {
     mod_act,
     pow_act
 };
+
+
+bool equals(symbols sym, token_types type);
+bool equals(token_types type, symbols sym);

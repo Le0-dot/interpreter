@@ -40,7 +40,7 @@ token analyzer::get_token()
 	    num += current;
 	    input >> next;
 	}
-	return token(token_types::num, std::variant<int, char>{std::stoi(num)});
+	return token(token_types::num, std::stoi(num));
     } else {
 	// Other cases
 	token_types type;
@@ -81,6 +81,6 @@ token analyzer::get_token()
 	       type = token_types::unknown;
 	       break;
 	}
-	return token(type, std::variant<int, char>{current});
+	return token(type, -1);
     }
 }

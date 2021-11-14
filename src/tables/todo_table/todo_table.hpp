@@ -14,6 +14,6 @@ class todo_table
 	todo_table();
 
     public:
-	todo_table* get();
+	static todo_table* get();
 	std::vector<symbols>& get_row(int idx);
 };
