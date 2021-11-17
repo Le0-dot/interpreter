@@ -2,7 +2,7 @@
 #include <vector>
 
 todo_table* todo_table::instance = nullptr;
-
+#include <iostream>
 todo_table::todo_table()
 {
     std::vector<symbols> temp = {symbols::expr};
@@ -45,7 +45,7 @@ todo_table::todo_table()
 todo_table* todo_table::get()
 {
     if(!instance)
-	instance = new todo_table;
+	instance = new todo_table{};
     return instance;
 }
 

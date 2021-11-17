@@ -8,7 +8,7 @@
 class todo_table
 {
     private:
-	std::array<std::vector<symbols>, 11> table;
+	std::array<std::vector<symbols>, 12> table;
 	static todo_table* instance;
 
 	todo_table();
