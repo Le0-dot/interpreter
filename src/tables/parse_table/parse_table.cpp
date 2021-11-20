@@ -11,11 +11,10 @@ parse_table::parse_table()
 	{token_types::mul, -1},
 	{token_types::div, -1},
 	{token_types::mod, -1},
-	{token_types::pow, -1},
 	{token_types::lp, 0},
 	{token_types::rp, -1},
-	{token_types::eol, 11},
-	{token_types::eoi, 11},
+	{token_types::eol, 10},
+	{token_types::eoi, 10},
 	{token_types::unknown, -1},
     };
     table.emplace(symbols::stmt, std::move(temp));
@@ -27,7 +26,6 @@ parse_table::parse_table()
 	{token_types::mul, -1},
 	{token_types::div, -1},
 	{token_types::mod, -1},
-	{token_types::pow, -1},
 	{token_types::lp, 1},
 	{token_types::rp, -1},
 	{token_types::eol, -1},
@@ -37,17 +35,16 @@ parse_table::parse_table()
     table.emplace(symbols::expr, std::move(temp));
     
     temp = {
-	{token_types::num, 11},
+	{token_types::num, 10},
 	{token_types::plus, 2},
 	{token_types::minus, 3},
-	{token_types::mul, 11},
-	{token_types::div, 11},
-	{token_types::mod, 11},
-	{token_types::pow, 11},
-	{token_types::lp, 11},
-	{token_types::rp, 11},
-	{token_types::eol, 11},
-	{token_types::eoi, 11},
+	{token_types::mul, 10},
+	{token_types::div, 10},
+	{token_types::mod, 10},
+	{token_types::lp, 10},
+	{token_types::rp, 10},
+	{token_types::eol, 10},
+	{token_types::eoi, 10},
 	{token_types::unknown, -1},
     };
     table.emplace(symbols::expr_prime, std::move(temp));
@@ -59,7 +56,6 @@ parse_table::parse_table()
 	{token_types::mul, -1},
 	{token_types::div, -1},
 	{token_types::mod, -1},
-	{token_types::pow, -1},
 	{token_types::lp, 4},
 	{token_types::rp, -1},
 	{token_types::eol, -1},
@@ -69,17 +65,16 @@ parse_table::parse_table()
     table.emplace(symbols::term, std::move(temp));
 
     temp = {
-	{token_types::num, 11},
-	{token_types::plus, 11},
-	{token_types::minus, 11},
+	{token_types::num, 10},
+	{token_types::plus, 10},
+	{token_types::minus, 10},
 	{token_types::mul, 5},
 	{token_types::div, 6},
 	{token_types::mod, 7},
-	{token_types::pow, -1},
-	{token_types::lp, 11},
-	{token_types::rp, 11},
-	{token_types::eol, 11},
-	{token_types::eoi, 11},
+	{token_types::lp, 10},
+	{token_types::rp, 10},
+	{token_types::eol, 10},
+	{token_types::eoi, 10},
 	{token_types::unknown, -1},
     };
     table.emplace(symbols::term_prime, std::move(temp));
@@ -91,7 +86,6 @@ parse_table::parse_table()
 	{token_types::mul, -1},
 	{token_types::div, -1},
 	{token_types::mod, -1},
-	{token_types::pow, 9},
 	{token_types::lp, 8},
 	{token_types::rp, -1},
 	{token_types::eol, -1},

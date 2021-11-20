@@ -2,8 +2,8 @@
 
 #include <stack>
 #include <vector>
+#include <queue>
 
-#include "../lexical_analyzer/lexical_analyzer.hpp"
 #include "../token/token.hpp"
 #include "../tables/symbols.hpp"
 
@@ -12,12 +12,13 @@ class parser
     private:
 	std::stack<token> value_stack;
 	std::stack<symbols> parse_stack;
-	analyzer analyz;
+	std::queue<token>& token_queue;
 
 	void push_symbols(const std::vector<symbols>& syms);
 
     public:
-	parser(analyzer&& analyz) : analyz{analyz} {};
+	parser(std::queue<token>& token_queue) : token_queue{token_queue},
+	    value_stack{}, parse_stack{} {};
 	~parser() = default;
 
 	int parse_line();

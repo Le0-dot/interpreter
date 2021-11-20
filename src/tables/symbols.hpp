@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "../token/types.hpp"
 
 enum class symbols {
@@ -18,7 +20,6 @@ enum class symbols {
     mul,
     div,
     mod,
-    pow,
     lp,
     rp,
 
@@ -28,9 +29,9 @@ enum class symbols {
     mul_act,
     div_act,
     mod_act,
-    pow_act
 };
 
 
 bool equals(symbols sym, token_types type);
 bool equals(token_types type, symbols sym);
+std::string symbol_to_str(symbols sym);

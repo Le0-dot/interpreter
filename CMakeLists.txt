@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(MAIN ./src/main.cpp)
-set(TOKEN ./src/token/token.hpp ./src/token/types.hpp)
+set(TOKEN ./src/token/token.hpp ./src/token/types.hpp ./src/token/types.cpp)
 set(SYMBOLS ./src/tables/symbols.hpp ./src/tables/symbols.cpp)
 set(TABLES ./src/tables/parse_table/parse_table.hpp ./src/tables/parse_table/parse_table.cpp
 	    ./src/tables/todo_table/todo_table.hpp ./src/tables/todo_table/todo_table.cpp)

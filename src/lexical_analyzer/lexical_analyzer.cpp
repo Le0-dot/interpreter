@@ -52,12 +52,7 @@ token analyzer::get_token()
 	       type = token_types::minus;
 	       break;
 	    case '*':
-	       input >> next;
-	       if(next == '*')
-		   type = token_types::pow;
-	       else
-		   type = token_types::mul;
-	       input >> next;
+	       type = token_types::mul;
 	       break;
 	    case '/':
 	       type = token_types::div;

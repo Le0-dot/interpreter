@@ -32,14 +32,11 @@ todo_table::todo_table()
     temp = {symbols::num};
     table[8] = std::move(temp);
     
-    temp = {symbols::pow_act, symbols::term_prime, symbols::fact, symbols::pow};
+    temp = {symbols::lp, symbols::expr, symbols::rp};
     table[9] = std::move(temp);
     
-    temp = {symbols::lp, symbols::expr, symbols::rp};
-    table[10] = std::move(temp);
-    
     temp = {};
-    table[11] = std::move(temp);
+    table[10] = std::move(temp);
 }
 
 todo_table* todo_table::get()
