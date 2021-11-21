@@ -1,7 +1,7 @@
 # interpreter
 Simple interpreter with table driven parser
 
-Due to peculiarity of the parser algebraic operation of same level (+ & -, *, / & %) executed in
+Due to peculiarity of the parser algebraic operation of same level (+ and -; *, / and %) executed in
 reverse order. That is from rightmost to the leftmost, e.g. 2 * 9 / 3 fist will be calculated 9 / 3
 and only then 2 * 3.
 
