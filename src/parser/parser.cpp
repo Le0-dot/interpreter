@@ -47,45 +47,45 @@ int parser::parse_line()
 	    // Act cases
 	    case symbols::plus_act:
 		parse_stack.pop();
-		v1 = value_stack.top().get_lexeme();
-		value_stack.pop();
 		v2 = value_stack.top().get_lexeme();
+		value_stack.pop();
+		v1 = value_stack.top().get_lexeme();
 		value_stack.pop();
 		value_stack.push(token(token_types::num, v1 + v2));
 		break;
 
 	    case symbols::minus_act:
 		parse_stack.pop();
-		v1 = value_stack.top().get_lexeme();
-		value_stack.pop();
 		v2 = value_stack.top().get_lexeme();
+		value_stack.pop();
+		v1 = value_stack.top().get_lexeme();
 		value_stack.pop();
 		value_stack.push(token(token_types::num, v1 - v2));
 		break;
 
 	    case symbols::mul_act:
 		parse_stack.pop();
-		v1 = value_stack.top().get_lexeme();
-		value_stack.pop();
 		v2 = value_stack.top().get_lexeme();
+		value_stack.pop();
+		v1 = value_stack.top().get_lexeme();
 		value_stack.pop();
 		value_stack.push(token(token_types::num, v1 * v2));
 		break;
 
 	    case symbols::div_act:
 		parse_stack.pop();
-		v1 = value_stack.top().get_lexeme();
-		value_stack.pop();
 		v2 = value_stack.top().get_lexeme();
+		value_stack.pop();
+		v1 = value_stack.top().get_lexeme();
 		value_stack.pop();
 		value_stack.push(token(token_types::num, v1 / v2));
 		break;
 
 	    case symbols::mod_act:
 		parse_stack.pop();
-		v1 = value_stack.top().get_lexeme();
-		value_stack.pop();
 		v2 = value_stack.top().get_lexeme();
+		value_stack.pop();
+		v1 = value_stack.top().get_lexeme();
 		value_stack.pop();
 		value_stack.push(token(token_types::num, v1 % v2));
 		break;
