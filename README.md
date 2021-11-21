@@ -4,7 +4,7 @@ Simple interpreter with table driven parser
 Due to peculiarity of the parser algebraic operation of same level (+ & -, *, / & %) executed in
 reverse order. That is from rightmost to the leftmost, e.g. 2 * 9 / 3 fist will be calculated 9 / 3
 and only then 2 * 3.
----
+
 ## Parser table
 |       | num | plus  | minus | mul   | div   | mod   | lp  | rp    | eol   | eoi   | unknown |
 | :---: | :-: | :---: | :---: | :---: | :---: | :---: | :-: | :---: | :---: | :---: | :-----: |
