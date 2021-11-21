@@ -23,5 +23,5 @@ Simple interpreter with table driven parser
 | 6   | div_act   | term' | fact | div   |
 | 7   | mod_act   | term' | fact | mod   |
 | 8   | num	  |	  |      |       |
-| 9   | lp	  | expr  | rp   |       |
+| 9   | rp	  | expr  | lp   |       |
 | 10  |		  |       |      |       |

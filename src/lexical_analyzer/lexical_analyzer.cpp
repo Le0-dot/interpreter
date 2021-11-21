@@ -8,7 +8,8 @@ bool is_digit(char ch)
     return (ch >= '0' && ch <= '9');
 }
 
-analyzer::analyzer(std::istream& input) : input{input}
+analyzer::analyzer(std::istream& input, std::queue<token>& token_queue) : 
+    input{input}, token_queue{token_queue}
 {
     input.unsetf(std::ios_base::skipws);
 }
@@ -33,7 +34,7 @@ token analyzer::get_token()
     // Assign token type
     if(is_digit(current)) {
 	// Read the whole number
-	std::string num = &current;
+	std::string num{current};
 	input >> next;
 	while(is_digit(next)) {
 	    current = next;
@@ -78,4 +79,15 @@ token analyzer::get_token()
 	}
 	return token(type, -1);
     }
+}
+
+token analyzer::get_line()
+{
+    token t{token_types::unknown, -1};
+    while((t.get_type() != token_types::eol) &&
+	    (t.get_type() != token_types::eoi)) {
+	t = get_token();
+	token_queue.push(t);
+    }
+    return t;
 }

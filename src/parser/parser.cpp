@@ -5,12 +5,9 @@
 #include "../tables/parse_table/parse_table.hpp"
 #include "../tables/todo_table/todo_table.hpp"
 
+// Debug function
+#ifdef DEBUG
 #include <iostream>
-void parser::push_symbols(const std::vector<symbols>& syms)
-{
-    for(const auto& it: syms)
-	parse_stack.push(it);
-}
 
 void print_stack(std::stack<symbols> s)
 {
@@ -20,13 +17,22 @@ void print_stack(std::stack<symbols> s)
 	tmp.push(a);
 	s.pop();
     }
+    std::cout << "parse_stack: ";
     while(!tmp.empty()) {
 	auto a = tmp.top();
-	std::cout << symbol_to_str(a) << ' ';
+	std::cout << symbol_to_str(a) << ", ";
 	tmp.pop();
     }
     std::cout << std::endl;
 }
+#endif
+
+void parser::push_symbols(const std::vector<symbols>& syms)
+{
+    for(const auto& it: syms)
+	parse_stack.push(it);
+}
+
 int parser::parse_line()
 {
     using namespace std::string_literals;
@@ -40,8 +46,11 @@ int parser::parse_line()
     parse_stack.push(symbols::stmt);
     // Main loop for onr line
     while(!parse_stack.empty()) {
+	// Debug information
+#ifdef DEBUG
 	print_stack(parse_stack);
-	std::cout << type_to_str(current.get_type()) << std::endl;
+	std::cout << "current token: " << type_to_str(current.get_type()) << std::endl << std::endl;
+#endif
 	int v1 = 0, v2 = 0, idx = -1;
 	switch(parse_stack.top()) {
 	    // Act cases
@@ -106,8 +115,12 @@ int parser::parse_line()
 		    // Add symbols from todo table to the parse stack
 		    push_symbols(todo_table::get()->get_row(idx));
 		else
+#ifdef DEBUG
 		    throw std::invalid_argument("Invalid syntaxis(non-terminal symbols)["s + 
 			    symbol_to_str(parse_stack.top()) + ", "s + type_to_str(current.get_type()) + "]"s);
+#else
+		    throw std::invalid_argument("Invalid syntaxis");
+#endif
 		break;
 
 	    // Cases for terminal symbols
@@ -116,8 +129,12 @@ int parser::parse_line()
 		if(equals(symbols::num, current.get_type()))
 		    value_stack.push(current);
 		else
+#ifdef DEBUG
 		    throw std::invalid_argument("Invalid syntaxis(terminal symbols)["s + 
 			    symbol_to_str(parse_stack.top()) + ", "s + type_to_str(current.get_type()) + "]"s);
+#else
+		    throw std::invalid_argument("Invalid syntaxis");
+#endif
 		current = token_queue.front();
 		token_queue.pop();
 		break;
@@ -129,8 +146,12 @@ int parser::parse_line()
 	    case symbols::lp:
 	    case symbols::rp:
 		if(!equals(parse_stack.top(), current.get_type()))
+#ifdef DEBUG
 		    throw std::invalid_argument("Invalid syntaxis(terminal symbols)["s + 
 			    symbol_to_str(parse_stack.top()) + ", "s + type_to_str(current.get_type()) + "]"s);
+#else
+		    throw std::invalid_argument("Invalid syntaxis");
+#endif
 		parse_stack.pop();
 		current = token_queue.front();
 		token_queue.pop();

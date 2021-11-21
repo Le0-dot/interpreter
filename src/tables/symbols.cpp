@@ -27,6 +27,7 @@ bool equals(token_types type, symbols sym)
     return equals(sym, type);
 }
 
+#ifdef DEBUG
 std::string symbol_to_str(symbols sym)
 {
     switch(sym) {
@@ -72,3 +73,4 @@ std::string symbol_to_str(symbols sym)
 	    return "";
     }
 }
+#endif

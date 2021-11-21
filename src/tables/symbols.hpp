@@ -34,4 +34,7 @@ enum class symbols {
 
 bool equals(symbols sym, token_types type);
 bool equals(token_types type, symbols sym);
+
+#ifdef DEBUG
 std::string symbol_to_str(symbols sym);
+#endif

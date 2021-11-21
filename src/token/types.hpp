@@ -11,4 +11,6 @@ enum class token_types {
     lp, rp,
 };
 
+#ifdef DEBUG
 std::string type_to_str(token_types type);
+#endif

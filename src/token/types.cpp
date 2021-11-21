@@ -1,6 +1,6 @@
 #include "types.hpp"
 
-
+#ifdef DEBUG
 std::string type_to_str(token_types type)
 {
     switch(type) {
@@ -30,3 +30,4 @@ std::string type_to_str(token_types type)
 	    return "";
     }
 }
+#endif
