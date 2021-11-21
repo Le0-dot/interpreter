@@ -86,7 +86,7 @@ parse_table::parse_table()
 	{token_types::mul, -1},
 	{token_types::div, -1},
 	{token_types::mod, -1},
-	{token_types::lp, 8},
+	{token_types::lp, 9},
 	{token_types::rp, -1},
 	{token_types::eol, -1},
 	{token_types::eoi, -1},

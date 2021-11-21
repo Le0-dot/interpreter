@@ -9,7 +9,7 @@ Simple interpreter with table driven parser
 | expr' | 10  | 2     |	3     | 10    | 10    | 10    | 10  | 10    | 10    | 10    | Error   |
 | term  | 4   | Error | Error | Error | Error | Error | 4   | Error | Error | Error | Error   |
 | term' | 10  | 10    |	10    | 5     |	6     | 7     |	10  | 10    | 10    | 10    | Error   |
-| fact  | 8   | Error | Error | Error | Error | Error | 8   | Error | Error | Error | Error   |
+| fact  | 8   | Error | Error | Error | Error | Error | 9   | Error | Error | Error | Error   |
 ---
 ## Todo table
 |     |           |       |      |       |
