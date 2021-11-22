@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../token/types.hpp"
+#include "types.hpp"
 
 enum class symbols {
     // Non-terminal symbols

@@ -2,8 +2,8 @@
 #include <iostream>
 #include <queue>
 
-#include "lexical_analyzer/lexical_analyzer.hpp"
-#include "parser/parser.hpp"
+#include "lexical_analyzer.hpp"
+#include "parser.hpp"
 
 void read_lines(analyzer& lex_an, parser& p, std::queue<token>& q)
 {

@@ -3,8 +3,8 @@
 #include <map>
 #include <memory>
 
-#include "../symbols.hpp"
-#include "../../token/types.hpp"
+#include "symbols.hpp"
+#include "types.hpp"
 
 class parse_table
 {

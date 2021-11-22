@@ -4,8 +4,8 @@
 #include <vector>
 #include <queue>
 
-#include "../token/token.hpp"
-#include "../tables/symbols.hpp"
+#include "token.hpp"
+#include "symbols.hpp"
 
 class parser
 {

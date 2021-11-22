@@ -2,8 +2,8 @@
 #include <stdexcept>
 
 #include "parser.hpp"
-#include "../tables/parse_table/parse_table.hpp"
-#include "../tables/todo_table/todo_table.hpp"
+#include "parse_table.hpp"
+#include "todo_table.hpp"
 
 // Debug function
 #ifdef DEBUG

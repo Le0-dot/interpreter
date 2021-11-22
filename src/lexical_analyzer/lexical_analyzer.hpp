@@ -3,7 +3,7 @@
 #include <iostream>
 #include <queue>
 
-#include "../token/token.hpp"
+#include "token.hpp"
 
 class analyzer
 {

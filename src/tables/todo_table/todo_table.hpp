@@ -3,7 +3,7 @@
 #include <array>
 #include <vector>
 
-#include "../symbols.hpp"
+#include "symbols.hpp"
 
 class todo_table
 {
