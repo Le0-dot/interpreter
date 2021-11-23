@@ -19,7 +19,8 @@ token analyzer::get_token()
     char current;
     static char next = 0;
 #ifdef NORMAL_ORDER
-    static bool minus = false, div = false;
+    static bool minus = false, div = false, mod = false;
+    static token::number_t last = 0;
 #endif
 
     // If next symbol was already taken
@@ -54,6 +55,11 @@ token analyzer::get_token()
 	    number = 1 / number;
 	    div = false;
 	}
+	if(mod) {
+	    number = static_cast<int>(last / number) * number;
+	    mod = false;
+	}
+	last = number;
 #endif
 	return token(token_types::num, number);
 
@@ -65,9 +71,8 @@ token analyzer::get_token()
 	       type = token_types::plus;
 	       break;
 	    case '-':
-#ifndef NORMAL_ORDER
 	       type = token_types::minus;
-#else
+#ifdef NORMAL_ORDER
 	       type = token_types::plus;
 	       minus = true;
 #endif
@@ -76,16 +81,17 @@ token analyzer::get_token()
 	       type = token_types::mul;
 	       break;
 	    case '/':
-#ifndef NORMAL_ORDER
 	       type = token_types::div;
-#else
+#ifdef NORMAL_ORDER
 	       type = token_types::mul;
 	       div = true;
 #endif
 	       break;
-#ifndef NORMAL_ORDER
 	    case '%':
 	       type = token_types::mod;
+#ifdef NORMAL_ORDER
+	       type = token_types::minus;
+	       mod = true;
 	       break;
 #endif
 	    case '(':
