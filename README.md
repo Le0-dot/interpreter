@@ -8,6 +8,7 @@ interpreter_normal is cutted version of original one. It takes advantage of the 
 - a / b is a * (1 / b),
 - a - b is a + (-b),
 - a % b is a - int(a / b) * b. 
+
 By those tricks I achived normal order of operations. 
 
 ## Parser table
