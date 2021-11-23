@@ -4,6 +4,7 @@ Simple interpreter with table driven parser
 In interpreter, due to peculiarity of the parser, algebraic operation of same level (+ and -; *, / and %) executed in
 reverse order. That is from rightmost to the leftmost, e.g. 2 * 9 / 3, fist will be calculated 9 / 3
 and only then 2 * 3.
+
 interpreter_normal is cutted version of original one. It takes advantage of the facts that 
 - a / b is a * (1 / b),
 - a - b is a + (-b),
@@ -35,3 +36,13 @@ By those tricks I achived normal order of operations.
 | 8   | num	  |	  |      |       |
 | 9   | rp	  | expr  | lp   |       |
 | 10  |		  |       |      |       |
+
+## Build
+Run build.sh script with following flags: 
+- -D activate debug output,
+- -R activate relese compile
+- no flags is relese version
+
+All binary files will be in bin directory. interpreter is the original version with fully
+implemented operations. interpreter_normal is version with normal order of operations that is
+achived by trick above.
