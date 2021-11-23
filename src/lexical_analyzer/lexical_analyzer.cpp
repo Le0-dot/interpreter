@@ -5,7 +5,7 @@
 
 bool is_digit(char ch)
 {
-    return (ch >= '0' && ch <= '9');
+    return (ch >= '0' && ch <= '9') || ch == '.';
 }
 
 analyzer::analyzer(std::istream& input, std::queue<token>& token_queue) : 
@@ -41,7 +41,7 @@ token analyzer::get_token()
 	    num += current;
 	    input >> next;
 	}
-	return token(token_types::num, std::stoi(num));
+	return token(token_types::num, std::stold(num));
     } else {
 	// Other cases
 	token_types type;

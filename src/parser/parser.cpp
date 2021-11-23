@@ -33,7 +33,7 @@ void parser::push_symbols(const std::vector<symbols>& syms)
 	parse_stack.push(it);
 }
 
-int parser::parse_line()
+token::number_t parser::parse_line()
 {
     using namespace std::string_literals;
     // Clear value and parse stack
@@ -51,7 +51,8 @@ int parser::parse_line()
 	print_stack(parse_stack);
 	std::cout << "current token: " << type_to_str(current.get_type()) << std::endl << std::endl;
 #endif
-	int v1 = 0, v2 = 0, idx = -1;
+	token::number_t v1 = 0, v2 = 0;
+	int idx = -1;
 	switch(parse_stack.top()) {
 	    // Act cases
 	    case symbols::plus_act:
@@ -96,7 +97,7 @@ int parser::parse_line()
 		value_stack.pop();
 		v1 = value_stack.top().get_lexeme();
 		value_stack.pop();
-		value_stack.push(token(token_types::num, v1 % v2));
+		value_stack.push(token(token_types::num, std::fmod(v1, v2)));
 		break;
 
 

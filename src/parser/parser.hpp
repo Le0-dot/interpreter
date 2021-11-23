@@ -21,5 +21,5 @@ class parser
 	    value_stack{}, parse_stack{} {};
 	~parser() = default;
 
-	int parse_line();
+	token::number_t parse_line();
 };

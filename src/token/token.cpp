@@ -2,7 +2,7 @@
 
 const token_types token::get_type() { return type; };;
 
-const int token::get_lexeme()
+const token::number_t token::get_lexeme()
 {
     if(type == token_types::num)
 	return lexeme;
