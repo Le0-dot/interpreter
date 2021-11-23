@@ -20,9 +20,6 @@ void read_lines(analyzer& lex_an, parser& p, std::queue<token>& q)
 
 int main()
 {
-#ifdef NORMAL_ORDER
-    std::cout << "NORMAL_ORDER" << std::endl;
-#endif
     std::queue<token> q;
     analyzer lex_an{std::cin, q};
     parser p{q};
