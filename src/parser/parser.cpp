@@ -9,7 +9,7 @@
 #ifdef DEBUG
 #include <iostream>
 
-void print_stack(std::stack<symbols> s)
+void print_stack(std::stack<symbols> s, const char* msg)
 {
     std::stack<symbols> tmp;
     while(!s.empty()) {
@@ -17,7 +17,7 @@ void print_stack(std::stack<symbols> s)
 	tmp.push(a);
 	s.pop();
     }
-    std::cout << "parse_stack: ";
+    std::cout << msg;
     while(!tmp.empty()) {
 	auto a = tmp.top();
 	std::cout << symbol_to_str(a) << ", ";
@@ -48,8 +48,9 @@ token::number_t parser::parse_line()
     while(!parse_stack.empty()) {
 	// Debug information
 #ifdef DEBUG
-	print_stack(parse_stack);
-	std::cout << "current token: " << type_to_str(current.get_type()) << std::endl << std::endl;
+	print_stack(parse_stack, "parse_stack: ");
+	std::cout << "current token: token{" << type_to_str(current.get_type()) << ", " << 
+	   (current.get_type() == token_types::num ? current.get_lexeme() : -1) << "}" << std::endl << std::endl;
 #endif
 	token::number_t v1 = 0, v2 = 0;
 	int idx = -1;

@@ -18,6 +18,9 @@ token analyzer::get_token()
 {
     char current;
     static char next = 0;
+#ifdef NORMAL_ORDER
+    static bool minus = false, div = false;
+#endif
 
     // If next symbol was already taken
     if(next == 0) {
@@ -41,7 +44,19 @@ token analyzer::get_token()
 	    num += current;
 	    input >> next;
 	}
-	return token(token_types::num, std::stold(num));
+	auto number = std::stold(num);
+#ifdef NORMAL_ORDER
+	if(minus) {
+	    number = -number;
+	    minus = false;
+	}
+	if(div) {
+	    number = 1 / number;
+	    div = false;
+	}
+#endif
+	return token(token_types::num, number);
+
     } else {
 	// Other cases
 	token_types type;
@@ -50,17 +65,29 @@ token analyzer::get_token()
 	       type = token_types::plus;
 	       break;
 	    case '-':
+#ifndef NORMAL_ORDER
 	       type = token_types::minus;
+#else
+	       type = token_types::plus;
+	       minus = true;
+#endif
 	       break;
 	    case '*':
 	       type = token_types::mul;
 	       break;
 	    case '/':
+#ifndef NORMAL_ORDER
 	       type = token_types::div;
+#else
+	       type = token_types::mul;
+	       div = true;
+#endif
 	       break;
+#ifndef NORMAL_ORDER
 	    case '%':
 	       type = token_types::mod;
 	       break;
+#endif
 	    case '(':
 	       type = token_types::lp;
 	       break;

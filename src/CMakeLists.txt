@@ -18,4 +18,4 @@ add_executable(${PROJECT_NAME}_normal ${MAIN})
 target_compile_definitions(${PROJECT_NAME}_normal PUBLIC NORMAL_ORDER)
 target_include_directories(${PROJECT_NAME}_normal PRIVATE token parser lexical_analyzer
     tables tables/parse_table tables/todo_table)
-target_link_libraries(${PROJECT_NAME}_normal token lexical_analyzer parser symbols parse_table todo_table)
+target_link_libraries(${PROJECT_NAME}_normal token lexical_analyzer_normal parser symbols parse_table todo_table)
