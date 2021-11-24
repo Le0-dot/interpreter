@@ -47,17 +47,17 @@ token analyzer::get_token()
 	}
 	auto number = std::stold(num);
 #ifdef NORMAL_ORDER
-	if(minus) {
-	    number = -number;
-	    minus = false;
+	if(mod) {
+	    number = static_cast<int>(last / number) * number;
+	    mod = false;
 	}
 	if(div) {
 	    number = 1 / number;
 	    div = false;
 	}
-	if(mod) {
-	    number = static_cast<int>(last / number) * number;
-	    mod = false;
+	if(minus) {
+	    number = -number;
+	    minus = false;
 	}
 	last = number;
 #endif
@@ -90,7 +90,8 @@ token analyzer::get_token()
 	    case '%':
 	       type = token_types::mod;
 #ifdef NORMAL_ORDER
-	       type = token_types::minus;
+	       type = token_types::plus;
+	       minus = true;
 	       mod = true;
 	       break;
 #endif
